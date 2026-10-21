@@ -1,0 +1,7 @@
+# Heavy AI dependencies (ResNet50 + EasyOCR + Sentence-BERT).
+# For CPU-only machines install torch from the CPU index first:
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+torch>=2.2
+torchvision>=0.17
+easyocr>=1.7
+sentence-transformers>=2.7

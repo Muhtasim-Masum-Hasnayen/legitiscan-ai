@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.db
+
+# Node
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+
+# Runtime data
+backend/storage/
+
+# Model weights & datasets (keep out of git; use Git LFS or a model host)
+backend/models/*.pt
+backend/models/*.pth
+backend/models/*.onnx
+backend/models/easyocr/
+backend/models/sbert/
+backend/data/reference/products.json
+datasets/
+
+# OS / editor
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/

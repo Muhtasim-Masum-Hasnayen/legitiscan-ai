@@ -1,0 +1,7 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/bin/python",
+  "python.testing.pytestArgs": ["backend"],
+  "python.testing.pytestEnabled": true,
+  "editor.formatOnSave": true,
+  "tailwindCSS.experimental.classRegex": [["clsx\\(([^)]*)\\)", "'([^']*)'"]]
+}

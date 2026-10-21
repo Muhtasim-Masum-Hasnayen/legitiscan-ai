@@ -1,0 +1,12 @@
+{
+  "_comment": "FORMAT EXAMPLE ONLY with obviously fake placeholder values. Copy to products.json and replace with real data from genuine packaging. This example file is never loaded.",
+  "products": [
+    {
+      "id": "example-001",
+      "brand": "Example Brand",
+      "product_name": "Example Hydrating Serum",
+      "reference_text": ["Text exactly as printed on the genuine front panel", "Text printed on the genuine back panel"],
+      "barcodes": ["4006381333931"]
+    }
+  ]
+}

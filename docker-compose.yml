@@ -1,0 +1,51 @@
+# One-command local stack:  docker compose up --build
+# Frontend: http://localhost:3000   API docs: http://localhost:8000/docs
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: legitiscan
+      POSTGRES_PASSWORD: legitiscan
+      POSTGRES_DB: legitiscan
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U legitiscan"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      args:
+        INSTALL_ML: ${INSTALL_ML:-false}   # set INSTALL_ML=true to include the AI libraries
+    environment:
+      ENVIRONMENT: development
+      DATABASE_URL: postgresql://legitiscan:legitiscan@db:5432/legitiscan
+      SECRET_KEY: ${SECRET_KEY:-dev-only-secret-change-me-dev-only-secret}
+      CORS_ORIGINS: http://localhost:3000
+      ML_ENABLED: ${ML_ENABLED:-true}
+    volumes:
+      - uploads:/app/storage/uploads
+      - ./backend/models:/app/models          # drop your trained weights here
+      - ./backend/data:/app/data              # drop your reference dataset here
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
+  uploads:
