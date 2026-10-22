@@ -1,5 +1,5 @@
 # LegitiScan AI — Scan Smart. Shop Confidently.
-
+<img width="1904" height="818" alt="1" src="https://github.com/Muhtasim-Masum-Hasnayen/legitiscan-ai/blob/main/1.png" />
 Web app that checks cosmetic packaging photos and reports one of three outcomes:
 **Likely Authentic**, **Potentially Counterfeit** or **Inconclusive**, with the evidence behind it.
 
